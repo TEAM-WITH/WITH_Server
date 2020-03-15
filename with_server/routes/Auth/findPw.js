@@ -73,7 +73,7 @@ router.put('/', async(req, res) => {
         from: process.env.E_MAIL_ID,    // 발송 메일 주소
         to: userId,    // 수신 메일 주소
         subject: `WiTH에서 ${name}님께 임시 비밀번호를 발급하였습니다.`, 
-        html : `<p font-size : 7px align='center' style='color: dimgray;'>${name}님의 임시 비밀번호 입니다. 로그인 후 비밀번호를 변경해주세요.</p><div align='center' style='border:1px solid white; background-color: indigo; font-family:verdana'><p style='color: white;'><strong>임시 비밀번호 : ${randomPw}<strong></p></div> `
+        html : `<p font-size : 10px align='center' style='color: dimgray;'> <br> ${name}님의 임시 비밀번호 입니다. 로그인 후 비밀번호를 변경해주세요. <br><br> </p><div align='center' style='border:1px solid white; background-color: indigo; padding-top : 8px; padding-bottom : 8px; font-family:verdana'><p style='color: white;'><strong>임시 비밀번호 : ${randomPw}<strong></p></div> `
     };
 
     transporter.sendMail(mailOptions, function(error, info){

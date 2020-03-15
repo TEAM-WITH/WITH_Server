@@ -206,8 +206,9 @@ router.post("/selfAuth", upload_auth.single('img'), async(req, res) => {
       from: process.env.E_MAIL_ID,    // 발송 메일 주소
       to: process.env.E_MAIL_ID,    // 수신 메일 주소
       subject: `[본인인증] ${userName}님께서 본인인증을 요청하였습니다`,   // 제목
-      text: `<p font-size : 7px align='center' style='color: dimgray;'>${userName}님께서 본인인증을 요청하였습니다.\n AWS S3에서 확인해주세요!\n</p><div align='center' style='border:1px solid white; background-color: indigo; font-family:verdana'><p style='color: white;'>https://s3.console.aws.amazon.com/s3/</p></div>`  // 내용
+      html: `<p font-size : 10px align='center' style='color: dimgray;'> <br><br> ${userName}님께서 본인인증을 요청하였습니다. AWS S3에서 확인해주세요! <br><br> </p><div align='center' style='border:1px solid white; background-color: indigo; padding-top : 15px; padding-bottom : 15px; font-family:verdana'><a href = "https://s3.console.aws.amazon.com/s3/" target = "blank" style='color: white;'> <strong> AWS S3 바로가기 <strong> </p></div>`  // 내용
     };
+
 
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
