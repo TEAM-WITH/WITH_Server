@@ -74,11 +74,17 @@ router.get("/region/:regionCode/startDates/:startDate/endDates/:endDate/keywords
   let result = await Board.readAll(json);
   
 
-  if(result == 1) //요청 페이지 초과했을때
+  if(result == -1) //요청 페이지 초과했을 때
   {
     res.status(statusCode.BAD_REQUEST).send(utils.successFalse(statusCode.BAD_REQUEST, responseMessage.BOARD_PAGE_EXCESS));
     return;
   }
+  else if(result == -2) //게시물 결과가 하나도 없을 때
+  {
+    res.status(statusCode.OK).send(utils.successTrue(statusCode.OK,responseMessage.BOARD_EMPTY, null));
+    return;
+  }
+  
 
   if(result.length == 0) //디비 내부 오류
   {

@@ -44,6 +44,7 @@ module.exports = {
     BOARD_DELETE_FAIL: "게시글 삭제 실패",
     BOARD_ACTIVATE_SUCCESS: "게시글 마감설정 변경 성공",
     BOARD_ACTIVATE_FAIL: "게시글 마감설정 변경 실패",
+    BOARD_EMPTY: "게시글이 없습니다",
 
     NO_BOARD: "존재하지 않은 게시글 입니다",
     NO_MY_BOARD: "현재 유저가 작성한 게시물이 없습니다",

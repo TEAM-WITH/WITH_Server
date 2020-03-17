@@ -97,7 +97,11 @@ module.exports = {
         var result = await pool.queryParam_None(query);       
         var count = result[0].cnt;
         if(json.currPage > count/pageSize + 1){ //페이지 넘어갔을때 오류처리
-            result = 1;
+            result = -1;
+            return result;
+        }
+        else if(count == 0) {
+            result = -2;
             return result;
         }
 
