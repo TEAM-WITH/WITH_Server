@@ -8,10 +8,6 @@ Server 개발저장📗📘
 
 <img src="https://github.com/TEAM-WITH/WITH_Server/blob/master/images/server_structure.png" width="800px" height="600px"></img><br/>
 
-## ERD
-
-<img src="https://github.com/TEAM-WITH/WITH_Server/blob/master/images/WITH_ERD.png" width="550px" height="700px"></img><br/>
-
 ## 핵심 기능
  - 최근 본 게시글(6개) 조회 기능을 통해, 현재 보고있는 게시글을 실수로 나가서 그 게시글을 다시 찾아야하는 상황일때 쉽게 찾을 수 있다.
  
