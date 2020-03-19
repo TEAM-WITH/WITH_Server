@@ -6,6 +6,7 @@ var logger = require('morgan');
 // var fs = require('fs');
 // ssl : https://tistory.lyasee.com/17
 
+//router 설정
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -18,9 +19,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+//기본 path를 /public으로 설정(css, javascript등의 파일 사용을 위해)
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'html')));
 
 app.use('/', indexRouter);
+
+app.get('/privacy_policy.html',(req,res) => {
+  res.send(path.join(__dirname, 'html', 'Privacy_Policy.html'  )); // ./html/privacy_policy.html 전송
+});
+
+app.get('/terms_of_service.html',(req,res) => {
+  res.send(path.join(__dirname, 'html', 'Terms_of_Service.html'  )); // ./html/terms_of_service.html 전송
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
