@@ -8,6 +8,7 @@ module.exports = {
     UNAUTHORIZED: 401,
     FORBIDDEN: 403,
     NOT_FOUND: 404,
+    ALREADY_ID: 406,
     NO_ID: 407,
     MISS_PASSWORD: 408,
     CONFLICT : 409,

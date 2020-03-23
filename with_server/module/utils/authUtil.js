@@ -32,7 +32,7 @@ const authMiddleware = {
             const user = jwt.verifyRefresh(token);
               
             if(user == -3) {
-                return res.status(statusCode.FORBIDDEN).send(utils.successFalse(statusCode.FORBIDDEN, responseMessage.EXPIRED_TOKEN));
+                return res.status(statusCode.FORBIDDEN).send(utils.successFalse(statusCode.FORBIDDEN, responseMessage.EXPIRED_REFRESH_TOKEN));
             }
             else if(user == -2) {
                 return res.status(statusCode.FORBIDDEN).send(utils.successFalse(statusCode.FORBIDDEN, responseMessage.INVALID_TOKEN));

@@ -22,8 +22,8 @@ router.get('/checkDup/:userId', async(req, res) => {
 
     if(!checkDup.length==0) {
         res
-        .status(statusCode.BAD_REQUEST)
-        .send(utils.successFalse(statusCode.BAD_REQUEST, responseMessage.ALREADY_ID));
+        .status(statusCode.ALREADY_ID)
+        .send(utils.successFalse(statusCode.ALREADY_ID, responseMessage.ALREADY_ID));
         return;
     }
         
