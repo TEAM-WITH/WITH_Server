@@ -60,8 +60,8 @@ router.get("/region/:regionCode/startDates/:startDate/endDates/:endDate/keywords
 
   if(startDate !='0' && endDate != '0')
   {
-    startDate = moment(startDate, 'YY.MM.DD').format('YYYY-MM-DD');
-    endDate = moment(endDate, 'YY.MM.DD').format('YYYY-MM-DD');
+    startDate = moment(startDate, 'YYYY.MM.DD').format('YYYY-MM-DD');
+    endDate = moment(endDate, 'YYYY.MM.DD').format('YYYY-MM-DD');
   }
 
   if(!regionCode || !currPage)

@@ -93,7 +93,8 @@ module.exports = {
             queryMain += ` AND (filter = -1 OR (filter = 1 AND gender = ${json.gender}))`;
         }
 
-        var query = `SELECT COUNT(*) as cnt ${queryMain}` ;        
+        var query = `SELECT COUNT(*) as cnt ${queryMain}` ;  
+        console.log(query);      
         var result = await pool.queryParam_None(query);       
         var count = result[0].cnt;
         if(json.currPage > count/pageSize + 1){ //페이지 넘어갔을때 오류처리
@@ -106,6 +107,7 @@ module.exports = {
         }
 
         query = `SELECT PT.* FROM (SELECT ${fields} ${queryMain} ORDER BY uploadTime desc) PT LIMIT ${pageSize} OFFSET ${offset}`;
+        console.log(query);
         var result = await pool.queryParam_None(query);
         
         // uploadTime "n분 전/n시간 전/n일 전"으로 수정하여 반환
