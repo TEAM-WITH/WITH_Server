@@ -32,8 +32,7 @@ router.get('/checkDup/:userId', async(req, res) => {
     .send(utils.successTrue(statusCode.OK, responseMessage.AVAILABLE_ID, null)); 
 });
 
-router.post('/', async (req, res) => {    
-    console.log(req.body);
+router.post('/',upload.single('userImg'), async (req, res) => {    
     //필수항목 안채웠으면 오류메세지 전송
     const {userId, password, name, birth, gender, interest} = req.body;    
 
