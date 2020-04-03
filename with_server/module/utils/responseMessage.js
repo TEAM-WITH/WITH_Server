@@ -3,6 +3,9 @@ module.exports = {
     OUT_OF_VALUE: "파라미터 값이 잘못 되었습니다",
     INTERNAL_SERVER_ERROR: "서버 내부 오류",
 
+    VERSION_SUCCESS: "버전 확인 성공",
+    VERSION_FAIL: "버전 확인 실패",
+
     SIGN_UP_SUCCESS: "회원가입 성공",
     SIGN_UP_FAIL: "회원 가입 실패",
     SIGN_IN_SUCCESS: "로그인 성공",
