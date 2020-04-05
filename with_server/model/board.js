@@ -41,8 +41,10 @@ module.exports = {
 
         // birth를 나이로 변환하여 반환
         postTerm = moment().diff(result[0][0].birth, "Year");
-        result[0][0].age = postTerm + 1;
-        delete result[0][0].birth;
+        result[0][0].birth = postTerm + 1;
+        
+        result[0][0].withFlag = -1;
+        result[0][0].writer = 1;
 
         return result[0][0];
     },
@@ -213,8 +215,16 @@ module.exports = {
     
             // birth를 나이로 변환하여 반환
             postTerm = moment().diff(result[0][0].birth, "Year");
-            result[0][0].age = postTerm + 1;
-            delete result[0][0].birth;
+            result[0][0].birth = postTerm + 1;
+
+            const result_sub = await pool.queryParam_None(`SELECT withFlag FROM Chat WHERE boardIdx = ${boardIdx} AND Chat.userIdx = ${userIdx}`);
+        
+            if(result_sub.length==0){
+                result[0][0].withFlag = -1;
+            }else{
+                result[0][0].withFlag = result_sub[0].withFlag;
+            }
+            result[0][0].writer = 1;
     
             return result[0][0];
         }
