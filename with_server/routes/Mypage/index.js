@@ -111,6 +111,8 @@ router.get("/boards", authUtil.validToken,async (req, res) => {
 
     for(var i = 0; i < result.length; i++) {
         result[i].uploadTime = moment(result[i].uploadTime, 'YYYY-MM-DD').format('M월 D일');
+        result[i].startDate = moment(result[i].startDate, 'YYYY-MM-DD').format('YYYY.MM.DD');
+        result[i].endDate = moment(result[i].endDate, 'YYYY-MM-DD').format('YYYY.MM.DD');
     }
 
     res.status(statusCode.OK).send(utils.successTrue(statusCode.OK, responseMessage.BOARD_READ_ALL_SUCCESS, result));
