@@ -223,6 +223,7 @@ router.post("/selfAuth", upload_auth.single('img'), async(req, res) => {
       }
     });
 });
+
 //관심사 리스트
 router.get("/interests",async(req,res) => {
     const result = await Mypage.readInterest();

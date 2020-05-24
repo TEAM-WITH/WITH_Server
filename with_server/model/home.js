@@ -7,14 +7,20 @@ const table4 = 'Home_img';
 module.exports = {
     readRegion: async () => {
         var continent = new Object();
+        continent.korea = new Object();
         continent.europe = new Object();
         continent.asia = new Object();
         continent.north_america = new Object();
         continent.south_america = new Object();
         continent.oceania = new Object();
         continent.africa = new Object();
-        continent.korea = new Object();
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+        continent.korea.all = new Object();
+        continent.korea.east = null;
+        continent.korea.west = null;
+        continent.korea.north = null;
+        continent.korea.south = null;
+
         continent.europe.all = new Object();
         continent.europe.east = new Object();
         continent.europe.west = new Object();
@@ -50,13 +56,10 @@ module.exports = {
         continent.africa.west = null;
         continent.africa.north = new Object();
         continent.africa.south = new Object();
-        
-        continent.korea.all = new Object();
-        continent.korea.east = null;
-        continent.korea.west = null;
-        continent.korea.north = null;
-        continent.korea.south = null;
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+        continent.korea.all.name = "전체";
+        continent.korea.all.country = new Array();
+
         continent.europe.all.name = "전체";
         continent.europe.all.country = new Array();
         continent.europe.east.name = "동유럽";
@@ -94,12 +97,7 @@ module.exports = {
         continent.africa.north.country = new Array();
         continent.africa.south.name = "남아프리카";
         continent.africa.south.country = new Array();
-        
-        continent.korea.all.name = "전체";
-        continent.korea.all.country = new Array();
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-
-
         var jsonData = JSON.stringify(continent);
         const result = await pool.queryParam_None(`SELECT regionName, regionCode FROM ${table2}`);
         

@@ -101,6 +101,10 @@ module.exports = {
         const setStr = `exist = '-1', name = '(알 수 없음)', userId = Null, userImg = 'https://i.ibb.co/17VpHQT/userimg.jpg', active = '-1'`
         const result = await pool.queryParam_None(`UPDATE ${table1} LEFT JOIN ${table2} ON ${table1}.userIdx = ${table2}.userIdx SET ${setStr} WHERE ${table1}.userIdx = ${userIdx}`);
         return result;
-        
-    }
+    },
+
+    // authUser : async(userIdx) => {
+    //     const result = await pool.queryParam_None(`UPDATE ${table1} SET auth = 2 WHERE userIdx = ${userIdx}`);
+    //     return result;
+    // }
 };
