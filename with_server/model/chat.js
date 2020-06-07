@@ -36,7 +36,7 @@ module.exports = {
             FROM Chat 
                 LEFT JOIN Board ON Chat.boardIdx = Board.boardIdx 
                 LEFT JOIN User ON Chat.userIdx = User.userIdx 
-            WHERE roomId LIKE '____%${userIdx}%' AND Chat.userIdx != ${userIdx}
+            WHERE (roomId LIKE '%\_%\_${userIdx}' OR roomId LIKE '%\_${userIdx}\_%') AND Chat.userIdx != ${userIdx}
             ORDER BY Chat.boardIdx ASC`);
 
             /*
