@@ -68,7 +68,7 @@ router.post('/', async(req, res) => {
     
     if(userResult.length == 0) { //존재하지 않는 데이터
         res
-        .status(statusCode.NO_ID)
+        .status(statusCode.BAD_REQUEST)
         .send(utils.successFalse(statusCode.NO_ID, responseMessage.NO_ID));
         return;
     } else {
